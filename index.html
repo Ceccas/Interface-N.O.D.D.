@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Site com Fundo Preto</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .content {
+        text-align: center;
+      }
+      .logo {
+        font-size: 52px;
+        margin-bottom: 20px;
+      }
+      .password-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input[type="password"] {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid white;
+        background-color: #cec0fc;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <h1 class="logo">N.O.D.D.</h1>
+      <form class="password-form" onsubmit="checkPassword(); return false;">
+        <input
+          id="passwordInput"
+          type="password"
+          placeholder=""
+          onblur="checkPassword()"
+        />
+      </form>
+    </div>
+    <script>
+      function checkPassword() {
+        const enteredPassword = document.getElementById("passwordInput").value;
+
+        if (enteredPassword.trim() === "") {
+          return;
+        }
+
+        if (enteredPassword === "Eu aceito") {
+          window.location.href = "inicio/NODD2.html";
+        } else {
+          alert("Senha incorreta!");
+          document.getElementById("passwordInput").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
